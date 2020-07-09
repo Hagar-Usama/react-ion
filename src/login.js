@@ -4,6 +4,21 @@ import { Form, Button } from 'reactstrap'
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import Routes from './Routes';
 import { Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+
+import Register from "./register"
+import Welcome from "./welcome"
+
+const RedirectMe = ({ path }) => (
+
+<BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={path}/>
+    </Switch>
+</BrowserRouter>);
+
+
 
 export default class Login extends React.Component{
 
@@ -14,20 +29,19 @@ constructor(props) {
     this.handleValidSubmit = this.handleValidSubmit.bind(this);
     this.handleInvalidSubmit = this.handleInvalidSubmit.bind(this);
     this.handleJoin = this.handleJoin.bind(this);
-    this.state = {email: false, password: false, redirect: false};
+    this.state = {email: false, password: false, redirect: false, login: false};
   }
 
   handleJoin(event){
 
     this.setState({redirect:true});
   }
+  
 
   handleValidSubmit(event, values) {
     this.setState({email: values.email});
-    this.setState({redirect:true});
-
-    //return <Redirect to="/welcome"/>
-    return <Redirect to="/register" />
+    this.setState({login:true})
+    
 
   }
 
@@ -35,7 +49,6 @@ constructor(props) {
     this.setState({email: values.email, error: true});
    
     alert("Invalid Credentials")
-    return <Redirect to="/register" />
 
   }
 
@@ -46,10 +59,15 @@ render(){
     console.log(this.state.redirect)
 
     if (this.state.redirect === true) {
-        return ( <Routes/>)
+        return(<RedirectMe path= {Register}/>)
 
     }
 
+    if( this.state.login === true){
+
+        return(<RedirectMe path= {Welcome}/>)
+
+    }
    
 
 return(
