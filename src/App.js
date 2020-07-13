@@ -10,7 +10,6 @@ import './App.css';
 import Login from "./login"
 //import Register from "./register"
 
-import { shallow } from "enzyme";
 import Routes from './Routes';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -33,9 +32,12 @@ class App extends Component{
 
   }
 
+  componentDidMount() {
+    document.title = "React-ion";
+
+  }
   
   render(){
-  //<Button  className="Btn" onClick={ActionLink} size="lg" block color="red">Join our Family</Button>
    
     return(
       <div className="App">
