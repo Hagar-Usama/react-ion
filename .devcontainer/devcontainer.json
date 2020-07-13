@@ -9,7 +9,7 @@
 },
 "postCreateCommand": "npm install",
 "extensions": [
-    "esbenp.ptettier-vscode",
+    "esbenp.prettier-vscode",
     "wesbos.theme-cobalt2"
 ]
 

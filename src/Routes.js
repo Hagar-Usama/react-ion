@@ -1,15 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-//import Login from "./login"
-import Register from "./register"
-import Welcome from "./welcome"
-
-export default () => (
+export default ({path}) => (
 <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Welcome}/>
-      <Route path="/" component={Register}/>
+      <Route exact path="/" component={path}/>
     </Switch>
 </BrowserRouter>
 );

@@ -3,20 +3,10 @@ import './App.css';
 import { Form, Button } from 'reactstrap'
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import Routes from './Routes';
-import { Redirect } from "react-router-dom";
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
 import Register from "./register"
 import Welcome from "./welcome"
-
-const RedirectMe = ({ path }) => (
-
-<BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={path}/>
-    </Switch>
-</BrowserRouter>);
 
 
 
@@ -59,13 +49,13 @@ render(){
     console.log(this.state.redirect)
 
     if (this.state.redirect === true) {
-        return(<RedirectMe path= {Register}/>)
+        return(<Routes path= {Register}/>)
 
     }
 
     if( this.state.login === true){
 
-        return(<RedirectMe path= {Welcome}/>)
+        return (<Routes path={Welcome}/>)
 
     }
    

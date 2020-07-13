@@ -2,6 +2,8 @@ import React from "react";
 import './App.css';
 import { Form, Button } from 'reactstrap'
 import { AvForm, AvField } from 'availity-reactstrap-validation';
+import Routes from './Routes';
+import Welcome from "./welcome"
 
 export default class Register extends React.Component{
 
@@ -13,14 +15,12 @@ export default class Register extends React.Component{
     this.state = {
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      login: false
   }
   }
 
   handleValidSubmit(event, values) {
-    ///this.setState({email: values.email}, {password: values.password}, {confirmPassword: values.confirmPassword});
-    //const { email, password, confirmPassword } = this.state;
-    // perform all neccassary validations
     this.setState({password: values.password});
     console.log(values.password)
     this.setState({confirmPassword: values.confirmPassword});
@@ -30,11 +30,11 @@ export default class Register extends React.Component{
         alert("Passwords don't match");
     } else {
       alert("You're now one of us");
+      this.setState({login:true})
+
         
     }
-    //return <Redirect to="/welcome"/>
-    //return <Redirect to="/register" />
-    //return(<Routes />);
+    
   }
 
   handleInvalidSubmit(event, errors, values) {
@@ -46,6 +46,12 @@ export default class Register extends React.Component{
 
 
   render(){
+
+    if( this.state.login === true){
+
+      return (<Routes path={Welcome}/>)
+
+  }
 
     return(
 
