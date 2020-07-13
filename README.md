@@ -16,3 +16,5 @@ First App = First Reaction
 Basic login/register form in React (front-end)
 
 ## Snapshot
+<img src="/images/Login-ion.gif" height="400" width='300'>
+<img src="/images/Register-ion.gif" height="400" width='300'>
